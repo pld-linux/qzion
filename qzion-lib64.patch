@@ -1,0 +1,24 @@
+diff -Nru qzion-0.3.0/src/qgraphicsview/qgraphicsview.pro qzion-0.3.0-new/src/qgraphicsview/qgraphicsview.pro
+--- qzion-0.3.0/src/qgraphicsview/qgraphicsview.pro	2008-09-04 16:41:48.000000000 +0200
++++ qzion-0.3.0-new/src/qgraphicsview/qgraphicsview.pro	2008-11-06 03:56:57.225954500 +0100
+@@ -53,7 +53,7 @@
+ QMAKE_PKGCONFIG_PREFIX = $$PREFIX
+ QMAKE_PKGCONFIG_DESTDIR = pkgconfig
+ 
+-target.path = $$PREFIX/lib
++target.path = $$PREFIX/$$LIB
+ INSTALLS += target
+ 
+ for(header, REL_HEADERS):{
+diff -Nru qzion-0.3.0/src/qpainter/qpainter.pro qzion-0.3.0-new/src/qpainter/qpainter.pro
+--- qzion-0.3.0/src/qpainter/qpainter.pro	2008-09-04 16:41:48.000000000 +0200
++++ qzion-0.3.0-new/src/qpainter/qpainter.pro	2008-11-06 03:56:57.225954500 +0100
+@@ -42,7 +42,7 @@
+ QMAKE_PKGCONFIG_PREFIX = $$PREFIX
+ QMAKE_PKGCONFIG_DESTDIR = pkgconfig
+ 
+-target.path = $$PREFIX/lib
++target.path = $$PREFIX/$$LIB
+ INSTALLS += target
+ 
+ for(header, REL_HEADERS):{
