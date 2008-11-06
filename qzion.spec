@@ -5,11 +5,12 @@ Summary:	qzion
 Summary(pl.UTF-8):	qzion
 Name:		qzion
 Version:	0.3.0
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		X11/Libraries
 Source0:	http://dev.openbossa.org/qedje/downloads/source/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	293cb0a9783f7111d97838fea8b6970a
+Patch0:		%{name}-lib64.patch
 URL:		http://dev.openbossa.org/trac/qzion
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
@@ -41,10 +42,12 @@ Pliki nag≈~B√≥wkowe biblioteki qzion.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 qmake-qt4 \
-	PREFIX=%{_prefix}
+	PREFIX=%{_prefix} \
+	LIB=%{_lib}
 %{__make}
 
 %install
