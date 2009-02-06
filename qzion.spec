@@ -30,7 +30,7 @@ qzion
 
 %package devel
 Summary:        Header files for qzion library
-Summary(pl.UTF-8):      Pliki nag舿B贸wkowe biblioteki qzion
+Summary(pl.UTF-8):      Pliki nag艂贸wkowe biblioteki qzion
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 
@@ -38,7 +38,7 @@ Requires:       %{name} = %{version}-%{release}
 Header files for qzion library.
 
 %description devel -l pl.UTF-8
-Pliki nag舿B贸wkowe biblioteki qzion.
+Pliki nag艂贸wkowe biblioteki qzion.
 
 %prep
 %setup -q
