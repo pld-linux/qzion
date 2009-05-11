@@ -1,15 +1,16 @@
 
-%define		qtver	4.4.3
+%define		qtver	4.5.0
 
 Summary:	qzion
 Summary(pl.UTF-8):	qzion
 Name:		qzion
-Version:	0.3.0
-Release:	1
+Version:	0.4.0
+Release:	0.git.1
 License:	GPL v2
 Group:		X11/Libraries
-Source0:	http://dev.openbossa.org/qedje/downloads/source/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	293cb0a9783f7111d97838fea8b6970a
+#Source0:	http://dev.openbossa.org/qedje/downloads/source/%{name}/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}-git.tar.gz
+# Source0-md5:	628ef8996686e16131973d8f08d54d49
 Patch0:		%{name}-lib64.patch
 URL:		http://dev.openbossa.org/trac/qzion
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -29,10 +30,11 @@ qzion
 qzion
 
 %package devel
-Summary:        Header files for qzion library
-Summary(pl.UTF-8):      Pliki nagłówkowe biblioteki qzion
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+Summary:	Header files for qzion library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki qzion
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+Requires:	python-sip-devel
 
 %description devel
 Header files for qzion library.
@@ -41,20 +43,26 @@ Header files for qzion library.
 Pliki nagłówkowe biblioteki qzion.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{name}-%{version}-git
 
 %build
-qmake-qt4 \
-	PREFIX=%{_prefix} \
-	LIB=%{_lib}
+install -d build
+cd build
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64 \
+%endif
+		../
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT
+%{__make} -C build install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,12 +73,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libqzion.so.*.*.*
-%attr(755,root,root) %{_libdir}/libqzion.prl
 %attr(755,root,root) %ghost %{_libdir}/libqzion.so.?
-%attr(755,root,root) %ghost %{_libdir}/libqzion.so.?.?
+%{py_sitedir}/qzion/__init__.py
+%{py_sitedir}/qzion/__init__.pyc
+%{py_sitedir}/qzion/qzion.so
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libqzion.so
 %{_includedir}/*.h
 %{_pkgconfigdir}/qzion.pc
+%{_datadir}/sip/qzion
