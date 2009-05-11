@@ -11,7 +11,6 @@ Group:		X11/Libraries
 #Source0:	http://dev.openbossa.org/qedje/downloads/source/%{name}/%{name}-%{version}.tar.gz
 Source0:	%{name}-%{version}-git.tar.gz
 # Source0-md5:	628ef8996686e16131973d8f08d54d49
-Patch0:		%{name}-lib64.patch
 URL:		http://dev.openbossa.org/trac/qzion
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
