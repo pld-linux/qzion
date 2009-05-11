@@ -53,7 +53,7 @@ cd build
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
-		../
+	../
 
 %{__make}
 
