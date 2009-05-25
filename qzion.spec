@@ -74,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libqzion.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libqzion.so.?
+%dir %{py_sitedir}/qzion
 %{py_sitedir}/qzion/__init__.py
 %{py_sitedir}/qzion/__init__.pyc
 %{py_sitedir}/qzion/qzion.so
