@@ -17,6 +17,7 @@ BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	eet-devel
 BuildRequires:	pkgconfig
+BuildRequires:	python-PyQt4-devel
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 Requires(post,postun):	/sbin/ldconfig
