@@ -1,0 +1,13 @@
+diff --git a/python/qzion/qzionobject.sip b/python/qzion/qzionobject.sip
+index 2ff5270..2e3082b 100644
+--- a/python/qzion/qzionobject.sip
++++ b/python/qzion/qzionobject.sip
+@@ -10,7 +10,7 @@ class QZionObject : QObject
+ 
+ %ConvertToSubClassCode
+     static struct classes {
+-        char *name;
++        const char *name;
+         sipWrapperType **type;
+     } cls[] = {
+         {sipName_QZionText, &sipClass_QZionText},
