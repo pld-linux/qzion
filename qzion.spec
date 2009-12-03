@@ -11,15 +11,18 @@ Group:		X11/Libraries
 #Source0:	http://dev.openbossa.org/qedje/downloads/source/%{name}/%{name}-%{version}.tar.gz
 Source0:	%{name}-%{version}-git.tar.gz
 # Source0-md5:	628ef8996686e16131973d8f08d54d49
-Patch0:	%{name}-python.patch
+Patch0:		%{name}-python.patch
 URL:		http://dev.openbossa.org/trac/qzion
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	QtWebKit-devel >= %{qtver}
+BuildRequires:	cmake
 BuildRequires:	eet-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-PyQt4-devel
+BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.164
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,7 +48,7 @@ Pliki nagłówkowe biblioteki qzion.
 
 %prep
 %setup -q -n %{name}-%{version}-git
-%patch -p1
+%patch0 -p1
 
 %build
 install -d build
