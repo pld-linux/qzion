@@ -1,0 +1,10 @@
+--- qzion-0.4.0-git/src/CMakeLists.txt~	2009-05-11 13:25:16.000000000 +0200
++++ qzion-0.4.0-git/src/CMakeLists.txt	2010-07-08 15:54:36.496056384 +0200
+@@ -29,6 +29,6 @@
+ install(FILES ${qzion_HEADERS} DESTINATION include/)
+ 
+ if (NOT WIN32)
+-    configure_file(common/qzion.pc.cmake qzion.pc @ONLY)
++    configure_file(common/qzion.pc.cmake ../qzion.pc @ONLY)
+     install(FILES ${CMAKE_BINARY_DIR}/qzion.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig/)
+ endif (NOT WIN32)
