@@ -17,8 +17,8 @@ URL:		http://dev.openbossa.org/trac/qzion
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	QtWebKit-devel >= %{qtver}
+BuildRequires:	QtXmlPatterns-devel
 BuildRequires:	cmake
-BuildRequires:	eet-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-PyQt4-devel
 BuildRequires:	qt4-build
