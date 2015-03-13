@@ -5,7 +5,7 @@ Summary:	qzion
 Summary(pl.UTF-8):	qzion
 Name:		qzion
 Version:	0.4.0
-Release:	0.git.3
+Release:	0.git.4
 License:	GPL v2
 Group:		X11/Libraries
 #Source0:	http://dev.openbossa.org/qedje/downloads/source/%{name}/%{name}-%{version}.tar.gz
@@ -20,11 +20,11 @@ BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	QtXmlPatterns-devel
 BuildRequires:	cmake
 BuildRequires:	pkgconfig
-BuildRequires:	python-PyQt4-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	sip-PyQt4
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
